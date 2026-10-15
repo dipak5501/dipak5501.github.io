@@ -8,333 +8,464 @@
       name="description"
       content="Dipak Yadav — Software Engineer. M.S. CS at CSULB. Builder of LocalPulse, ETHGlobal OmniAgent winner, former LTIMindtree. AI, full-stack, and maps."
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#fafafa" />
     <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="noise" aria-hidden="true"></div>
     <a class="skip" href="#main">Skip to content</a>
 
-    <header class="topnav">
-      <a class="brand" href="#top">Dipak Yadav</a>
-      <nav class="topnav-links">
-        <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#experience">Experience</a>
-        <a href="#research">Research</a>
-        <a class="btn-nav" href="#contact">Let’s talk</a>
-      </nav>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Menu">
-        <span></span><span></span>
-      </button>
+    <header class="nav" id="site-nav">
+      <div class="nav-inner">
+        <a class="logo" href="#top">
+          <span class="logo-mark">DY</span>
+          <span class="logo-text">Dipak Yadav</span>
+        </a>
+        <nav class="nav-links" id="nav-links" aria-label="Primary">
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#research">Research</a>
+          <a class="nav-cta" href="#contact">Contact</a>
+        </nav>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          aria-label="Open menu"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
     </header>
 
-    <div class="drawer" id="drawer">
-      <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#experience">Experience</a>
-      <a href="#research">Research</a>
-      <a href="#contact">Let’s talk</a>
-    </div>
-
     <main id="main">
-      <!-- PROFILE HERO (Wall-of-Portfolios style) -->
-      <section class="profile" id="top">
-        <div class="shell profile-inner">
-          <div class="profile-card">
-            <img class="avatar" src="avatar.png" alt="Dipak Yadav" width="140" height="140" />
-            <div class="profile-main">
-              <div class="profile-head">
-                <h1>Dipak Yadav</h1>
-                <p class="handle">
-                  <span>@dipak5501</span>
-                  <span class="sep">·</span>
-                  <span class="loc">Long Beach, California</span>
-                </p>
-                <p class="role">Software Engineer · Full-Stack &amp; AI</p>
-              </div>
-              <div class="profile-actions">
-                <a class="btn btn-dark" href="mailto:dipak.yadav5501@gmail.com">Message</a>
-                <a class="btn btn-light" href="https://www.linkedin.com/in/dipak-yadav01/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a class="btn btn-light" href="https://github.com/dipak5501" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
+      <section class="hero" id="top">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-status">
+              <span class="dot" aria-hidden="true"></span>
+              Available for opportunities · Long Beach, CA
+            </p>
+            <h1 class="hero-name">
+              <span class="name-line">Dipak</span>
+              <span class="name-line serif">Yadav</span>
+            </h1>
+            <p class="hero-role">Software Engineer · Full-Stack &amp; AI</p>
+            <p class="hero-lede">
+              I design and ship precise interfaces and systems — from
+              <em>LocalPulse</em> maps to enterprise KYC and ETHGlobal-winning
+              agents. Craft, performance, and clarity.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#work">
+                View selected work
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a class="btn btn-ghost" href="mailto:dipak.yadav5501@gmail.com">Email me</a>
+              <a
+                class="btn btn-text"
+                href="https://github.com/dipak5501"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub ↗</a
+              >
+              <a
+                class="btn btn-text"
+                href="https://www.linkedin.com/in/dipak-yadav01/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn ↗</a
+              >
             </div>
+            <ul class="hero-proof" aria-label="Highlights">
+              <li><strong>3y 7m</strong><span>Industry</span></li>
+              <li><strong>ETHGlobal</strong><span>1st · Saga</span></li>
+              <li><strong>Rising Dev</strong><span>2023 &amp; 2024</span></li>
+              <li><strong>M.S. CS</strong><span>CSULB ’26</span></li>
+            </ul>
           </div>
+          <div class="hero-photo reveal">
+            <div class="photo-frame">
+              <img src="avatar.png" alt="Dipak Yadav" width="800" height="800" fetchpriority="high" />
+            </div>
+            <p class="photo-caption">@dipak5501</p>
+          </div>
+        </div>
+      </section>
 
-          <div class="stats">
-            <div>
-              <strong>3y 7m</strong>
-              <span>Industry experience</span>
-            </div>
-            <div>
-              <strong>LocalPulse</strong>
-              <span>Live map product · 2026</span>
-            </div>
-            <div>
-              <strong>ETHGlobal</strong>
-              <span>NY 2025 · 1st place</span>
-            </div>
-            <div>
-              <strong>Rising Dev</strong>
-              <span>of the Year · 2023 &amp; 2024</span>
+      <section class="section about" id="about">
+        <div class="wrap">
+          <div class="section-label reveal">About</div>
+          <div class="about-layout">
+            <h2 class="display reveal">
+              Engineer who ships under constraints — and cares how it feels.
+            </h2>
+            <div class="about-body reveal">
+              <p>
+                Nearly four years of full-stack experience; M.S. Computer Science
+                at California State University, Long Beach. I build products that
+                ship — from <strong>LocalPulse</strong> (a live location-aware
+                trending map) to a Citi Bank KYC platform and an ETHGlobal-winning
+                Web3 agent.
+              </p>
+              <p>
+                At LTIMindtree I shipped Java / Spring Boot production systems and
+                owned incident response (ServiceNow). At CSULB I work as a Graduate
+                / Research Assistant — analytics automation, computer vision /
+                GenAI storytelling, and Databricks + Spark enablement. Two-time
+                Rising Developer of the Year (2023, 2024).
+              </p>
+              <div class="pill-row">
+                <span>LocalPulse</span>
+                <span>LTIMindtree</span>
+                <span>Citi Bank KYC</span>
+                <span>CSULB</span>
+                <span>ETHGlobal</span>
+                <span>Databricks</span>
+                <span>ICSOFT 2026</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT -->
-      <section class="block" id="about">
-        <div class="shell">
-          <div class="block-label">About</div>
-          <div class="about-grid">
-            <p class="about-lead">
-              Software engineer with nearly four years of full-stack experience,
-              now pursuing an M.S. in Computer Science at California State
-              University, Long Beach. I build products that ship — from
-              <strong>LocalPulse</strong> (a live location-aware trending map) to
-              a Citi Bank KYC platform and an ETHGlobal-winning Web3 agent.
-            </p>
-            <p class="about-more">
-              At LTIMindtree I shipped Java / Spring Boot production systems and
-              owned incident response (ServiceNow). At CSULB I work as a Graduate
-              / Research Assistant in Math &amp; Stats — analytics automation,
-              computer vision / GenAI storytelling, and Databricks + Spark
-              enablement. Two-time Rising Developer of the Year (2023, 2024).
-            </p>
+      <section class="section work" id="work">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="section-label reveal">Selected work</div>
+            <h2 class="display reveal">Projects with range and polish.</h2>
           </div>
 
-          <div class="includes">
-            <p class="includes-label">Experience includes</p>
-            <div class="chips">
-              <span>LocalPulse</span>
-              <span>LTIMindtree</span>
-              <span>Citi Bank KYC</span>
-              <span>CSULB</span>
-              <span>ETHGlobal</span>
-              <span>Databricks</span>
-              <span>ICSOFT 2026</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PORTFOLIO GALLERY -->
-      <section class="block alt" id="portfolio">
-        <div class="shell">
-          <div class="block-head">
-            <div class="block-label">Portfolio</div>
-            <h2>Selected work</h2>
-          </div>
-
-          <div class="gallery">
-            <a class="tile tile-lg" href="https://dipak5501.github.io/localpulse/" target="_blank" rel="noopener noreferrer">
-              <div class="tile-visual v-pulse">
-                <span class="tile-badge award">Featured · Live</span>
+          <div class="projects">
+            <a
+              class="project featured reveal"
+              href="https://dipak5501.github.io/localpulse/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-visual v-pulse">
+                <span class="badge live">Featured · Live</span>
               </div>
-              <div class="tile-body">
-                <h3>LocalPulse <span>↗</span></h3>
+              <div class="project-content">
+                <div class="project-meta">
+                  <span>01</span>
+                  <span>Product · Maps</span>
+                </div>
+                <h3>LocalPulse <span class="arrow">↗</span></h3>
                 <p>
                   A live map of what’s trending around you — geolocation, radius
                   search, and a location-aware trending algorithm with markers and
                   a custom heatmap. Next.js 16, TypeScript, Leaflet, Supabase +
                   PostGIS schema, Vitest &amp; Playwright CI.
                 </p>
-                <div class="tags">
-                  <span>Next.js 16</span><span>TypeScript</span><span>Leaflet</span>
-                  <span>Supabase</span><span>PostGIS</span>
-                </div>
-                <p class="tile-links">
-                  <span>Live demo</span>
-                  ·
-                  <a href="https://github.com/dipak5501/localpulse" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">GitHub</a>
-                </p>
+                <ul class="tech">
+                  <li>Next.js 16</li>
+                  <li>TypeScript</li>
+                  <li>Leaflet</li>
+                  <li>Supabase</li>
+                  <li>PostGIS</li>
+                </ul>
+                <span class="project-links"
+                  >Live demo ·
+                  <span
+                    class="link-inline"
+                    data-href="https://github.com/dipak5501/localpulse"
+                    >GitHub</span
+                  ></span
+                >
               </div>
             </a>
 
-            <article class="tile">
-              <div class="tile-visual v-citi">
-                <span class="tile-badge">Enterprise</span>
+            <article class="project reveal">
+              <div class="project-visual v-citi">
+                <span class="badge">Enterprise</span>
               </div>
-              <div class="tile-body">
+              <div class="project-content">
+                <div class="project-meta"><span>02</span><span>Banking · Compliance</span></div>
                 <h3>Citi Bank KYC System</h3>
                 <p>
                   Know Your Customer platform for Citi — identity verification,
                   document workflows, and compliance in production banking.
                 </p>
-                <div class="tags"><span>Java</span><span>Spring Boot</span><span>AngularJS</span><span>SQL</span></div>
+                <ul class="tech">
+                  <li>Java</li>
+                  <li>Spring Boot</li>
+                  <li>AngularJS</li>
+                  <li>SQL</li>
+                </ul>
               </div>
             </article>
 
-            <a class="tile" href="https://github.com/dipak5501/omniagent" target="_blank" rel="noopener noreferrer">
-              <div class="tile-visual v-omni">
-                <span class="tile-badge award">ETHGlobal Winner</span>
+            <a
+              class="project reveal"
+              href="https://github.com/dipak5501/omniagent"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-visual v-omni">
+                <span class="badge live">ETHGlobal Winner</span>
               </div>
-              <div class="tile-body">
-                <h3>OmniAgent <span>↗</span></h3>
+              <div class="project-content">
+                <div class="project-meta"><span>03</span><span>Web3 · AI</span></div>
+                <h3>OmniAgent <span class="arrow">↗</span></h3>
                 <p>
                   AI cross-chain DAO governance — GPT-4, smart contracts, treasury
                   automation. 1st place · Partner of Saga · ETHGlobal NY 2025.
                 </p>
-                <div class="tags"><span>Next.js</span><span>Solidity</span><span>GPT-4</span><span>Web3</span></div>
+                <ul class="tech">
+                  <li>Next.js</li>
+                  <li>Solidity</li>
+                  <li>GPT-4</li>
+                  <li>Web3</li>
+                </ul>
               </div>
             </a>
 
-            <article class="tile">
-              <div class="tile-visual v-uml">
-                <span class="tile-badge">Thesis</span>
+            <article class="project reveal">
+              <div class="project-visual v-uml">
+                <span class="badge">Thesis</span>
               </div>
-              <div class="tile-body">
+              <div class="project-content">
+                <div class="project-meta"><span>04</span><span>AI · Software design</span></div>
                 <h3>UML Generation Pipeline</h3>
                 <p>
                   Thesis system: natural-language requirements → UML via LLMs and
-                  PlantUML, scored by a multimodal VLM ensemble (FastAPI / Streamlit).
+                  PlantUML, scored by a multimodal VLM ensemble (FastAPI /
+                  Streamlit).
                 </p>
-                <div class="tags"><span>Python</span><span>VLMs</span><span>PlantUML</span><span>LLMs</span></div>
+                <ul class="tech">
+                  <li>Python</li>
+                  <li>VLMs</li>
+                  <li>PlantUML</li>
+                  <li>LLMs</li>
+                </ul>
               </div>
             </article>
 
-            <a class="tile" href="https://github.com/dipak5501/-Criminal-identification-using-2D-face-recognition-system" target="_blank" rel="noopener noreferrer">
-              <div class="tile-visual v-cv">
-                <span class="tile-badge">Vision</span>
+            <a
+              class="project reveal"
+              href="https://github.com/dipak5501/-Criminal-identification-using-2D-face-recognition-system"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-visual v-cv">
+                <span class="badge">Vision</span>
               </div>
-              <div class="tile-body">
-                <h3>2D Face Recognition <span>↗</span></h3>
-                <p>OpenCV + Haar Cascade identification with SQL-backed operator dashboard.</p>
-                <div class="tags"><span>Python</span><span>OpenCV</span><span>SQL</span></div>
-              </div>
-            </a>
-
-            <a class="tile" href="https://github.com/dipak5501/Sales-Performance-Dashboard" target="_blank" rel="noopener noreferrer">
-              <div class="tile-visual v-bi">
-                <span class="tile-badge">Analytics</span>
-              </div>
-              <div class="tile-body">
-                <h3>Sales Dashboard <span>↗</span></h3>
-                <p>Power BI dealership KPIs — YTD/MTD, YoY growth, regional maps.</p>
-                <div class="tags"><span>Power BI</span><span>DAX</span></div>
-              </div>
-            </a>
-
-            <a class="tile" href="https://github.com/dipak5501/ML_Student_Performance_Analysis" target="_blank" rel="noopener noreferrer">
-              <div class="tile-visual v-ml">
-                <span class="tile-badge">ML</span>
-              </div>
-              <div class="tile-body">
-                <h3>Student Performance ML <span>↗</span></h3>
-                <p>Predictive analysis of academic performance signals in Python.</p>
-                <div class="tags"><span>Scikit-learn</span><span>Pandas</span></div>
+              <div class="project-content">
+                <div class="project-meta"><span>05</span><span>Computer vision</span></div>
+                <h3>2D Face Recognition <span class="arrow">↗</span></h3>
+                <p>
+                  OpenCV + Haar Cascade identification with SQL-backed operator
+                  dashboard.
+                </p>
+                <ul class="tech">
+                  <li>Python</li>
+                  <li>OpenCV</li>
+                  <li>SQL</li>
+                </ul>
               </div>
             </a>
 
-            <article class="tile">
-              <div class="tile-visual v-caption">
-                <span class="tile-badge">Deep Learning</span>
+            <a
+              class="project reveal"
+              href="https://github.com/dipak5501/Sales-Performance-Dashboard"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-visual v-bi">
+                <span class="badge">Analytics</span>
               </div>
-              <div class="tile-body">
+              <div class="project-content">
+                <div class="project-meta"><span>06</span><span>Data viz</span></div>
+                <h3>Sales Dashboard <span class="arrow">↗</span></h3>
+                <p>
+                  Power BI dealership KPIs — YTD/MTD, YoY growth, regional maps.
+                </p>
+                <ul class="tech">
+                  <li>Power BI</li>
+                  <li>DAX</li>
+                </ul>
+              </div>
+            </a>
+
+            <a
+              class="project reveal"
+              href="https://github.com/dipak5501/ML_Student_Performance_Analysis"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="project-visual v-ml">
+                <span class="badge">ML</span>
+              </div>
+              <div class="project-content">
+                <div class="project-meta"><span>07</span><span>Machine learning</span></div>
+                <h3>Student Performance ML <span class="arrow">↗</span></h3>
+                <p>
+                  Predictive analysis of academic performance signals in Python.
+                </p>
+                <ul class="tech">
+                  <li>Scikit-learn</li>
+                  <li>Pandas</li>
+                </ul>
+              </div>
+            </a>
+
+            <article class="project reveal">
+              <div class="project-visual v-caption">
+                <span class="badge">Deep learning</span>
+              </div>
+              <div class="project-content">
+                <div class="project-meta"><span>08</span><span>CNN–RNN</span></div>
                 <h3>Image Caption Generator</h3>
                 <p>
                   CNN–RNN image captioning system validated on Flickr datasets and
                   evaluated with BLEU scores.
                 </p>
-                <div class="tags"><span>Python</span><span>CNN-RNN</span><span>TensorFlow</span></div>
+                <ul class="tech">
+                  <li>Python</li>
+                  <li>CNN-RNN</li>
+                  <li>TensorFlow</li>
+                </ul>
               </div>
             </article>
 
-            <article class="tile">
-              <div class="tile-visual v-cv">
-                <span class="tile-badge">Vision</span>
+            <article class="project reveal">
+              <div class="project-visual v-cv2">
+                <span class="badge">Vision</span>
               </div>
-              <div class="tile-body">
+              <div class="project-content">
+                <div class="project-meta"><span>09</span><span>Classification</span></div>
                 <h3>Celebrity Image Classifier</h3>
                 <p>
                   Face classification pipeline with OpenCV and SVM — ~85% accuracy
                   on celebrity image recognition.
                 </p>
-                <div class="tags"><span>Python</span><span>OpenCV</span><span>SVM</span></div>
+                <ul class="tech">
+                  <li>Python</li>
+                  <li>OpenCV</li>
+                  <li>SVM</li>
+                </ul>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- EXPERIENCE -->
-      <section class="block" id="experience">
-        <div class="shell">
-          <div class="block-head">
-            <div class="block-label">Experience</div>
-            <h2>Where I’ve worked</h2>
+      <section class="section experience" id="experience">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="section-label reveal">Experience</div>
+            <h2 class="display reveal">Where the craft was practiced.</h2>
           </div>
-
-          <div class="jobs">
-            <article class="job">
-              <div class="job-left">
+          <div class="timeline">
+            <article class="exp reveal">
+              <time datetime="2025-09">Sep 2025 — Present</time>
+              <div>
                 <h3>Graduate / Research Assistant (GA/RA)</h3>
-                <p class="co">CSULB · Math &amp; Stats · LB–C Data Science</p>
+                <p class="org">CSULB · Math &amp; Stats · LB–C Data Science</p>
+                <p>
+                  Built reusable analytics automation in Python and R; developed
+                  computer-vision and GenAI workflows for data storytelling; led
+                  Databricks + Apache Spark enablement and resolved lab environment
+                  issues for students and faculty.
+                </p>
               </div>
-              <p class="when">Sep 2025 — Present</p>
-              <p class="job-desc">
-                Built reusable analytics automation in Python and R; developed
-                computer-vision and GenAI workflows for data storytelling; led
-                Databricks + Apache Spark enablement and resolved lab environment
-                issues for students and faculty.
-              </p>
             </article>
-            <article class="job">
-              <div class="job-left">
+            <article class="exp reveal">
+              <time datetime="2026-06">Jun 2026 — Aug 2026</time>
+              <div>
                 <h3>AI Summer Camp Tutor</h3>
-                <p class="co">CSULB · Sankofa Summer Academy</p>
+                <p class="org">CSULB · Sankofa Summer Academy</p>
+                <p>
+                  Mentored middle-school students through hands-on AI/ML labs —
+                  data collection, model training, and problem-solving.
+                </p>
               </div>
-              <p class="when">Jun 2026 — Aug 2026</p>
-              <p class="job-desc">
-                Mentored middle-school students through hands-on AI/ML labs — data
-                collection, model training, and problem-solving.
-              </p>
             </article>
-            <article class="job">
-              <div class="job-left">
+            <article class="exp reveal">
+              <time datetime="2025-06">Jun 2025 — Aug 2025</time>
+              <div>
                 <h3>Data Science Research Assistant</h3>
-                <p class="co">CSULB · Math &amp; Statistics · LB–C DSLC</p>
+                <p class="org">CSULB · Math &amp; Statistics · LB–C DSLC</p>
+                <p>
+                  Community data storytelling for health equity — collaborating
+                  with faculty, nonprofits, and partners on infographics and
+                  presentations.
+                </p>
               </div>
-              <p class="when">Jun 2025 — Aug 2025</p>
-              <p class="job-desc">
-                Community data storytelling for health equity — collaborating with
-                faculty, nonprofits, and partners on infographics and presentations.
-              </p>
             </article>
-            <article class="job">
-              <div class="job-left">
+            <article class="exp reveal">
+              <time datetime="2021-07">Jul 2021 — Jan 2025</time>
+              <div>
                 <h3>Software Engineer · Full-Stack</h3>
-                <p class="co">LTIMindtree · Bengaluru</p>
+                <p class="org">LTIMindtree · Bengaluru</p>
+                <p>
+                  Built an enterprise Citi Bank KYC system (Python, Java, Spring
+                  Boot, SQL) with third-party verification APIs; improved response
+                  time ~30% and reduced downtime ~15% via SQL/backend optimization
+                  and ServiceNow incident ownership; shipped Tableau SLA dashboards
+                  and CI pipelines.
+                </p>
               </div>
-              <p class="when">Jul 2021 — Jan 2025</p>
-              <p class="job-desc">
-                Built an enterprise Citi Bank KYC system (Python, Java, Spring Boot,
-                SQL) with third-party verification APIs; improved response time ~30%
-                and reduced downtime ~15% via SQL/backend optimization and ServiceNow
-                incident ownership; shipped Tableau SLA dashboards and CI pipelines.
-              </p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- RESEARCH -->
-      <section class="block alt" id="research">
-        <div class="shell">
-          <div class="block-head">
-            <div class="block-label">Research &amp; credentials</div>
-            <h2>Papers, school &amp; certs</h2>
+      <section class="section skills" id="skills">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="section-label reveal">Skills</div>
+            <h2 class="display reveal">Stack I reach for.</h2>
+          </div>
+          <div class="skill-grid">
+            <div class="skill-card reveal">
+              <h3>Frontend</h3>
+              <p>TypeScript · React · Next.js · HTML/CSS · AngularJS · Leaflet</p>
+            </div>
+            <div class="skill-card reveal">
+              <h3>Backend</h3>
+              <p>Java · Spring Boot · Python · Go · Node.js · REST · SQL</p>
+            </div>
+            <div class="skill-card reveal">
+              <h3>Data &amp; AI</h3>
+              <p>Spark · Databricks · LLMs · TensorFlow · PyTorch · OpenCV · Pandas</p>
+            </div>
+            <div class="skill-card reveal">
+              <h3>Cloud &amp; quality</h3>
+              <p>AWS · Azure · GCP · Docker · K8s · Vitest · Playwright · CI/CD</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section research" id="research">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="section-label reveal">Research &amp; credentials</div>
+            <h2 class="display reveal">Ideas held to a standard.</h2>
           </div>
 
-          <article class="paper">
-            <p class="paper-meta">ICSOFT 2026 · Regular Paper #72 · Registered</p>
+          <article class="paper reveal">
+            <p class="paper-tag">ICSOFT 2026 · Regular Paper #72 · Registered</p>
             <h3>
-              Engineering Self-Adaptive and Autonomous Systems: A Critical Survey and
-              an Adaptation-Assurance Framework
+              Engineering Self-Adaptive and Autonomous Systems: A Critical Survey
+              and an Adaptation-Assurance Framework
             </h3>
             <p>
               Critical survey of self-adaptive systems with an Adaptation-Assurance
@@ -343,8 +474,8 @@
             </p>
           </article>
 
-          <article class="paper">
-            <p class="paper-meta">Journal of Algebraic Statistics · June 2022 · Lead Author</p>
+          <article class="paper reveal">
+            <p class="paper-tag">Journal of Algebraic Statistics · June 2022 · Lead Author</p>
             <h3>Unifying Architecture to Generate Descriptions: Features to Text</h3>
             <p>
               Research publication on architecture approaches for generating
@@ -352,46 +483,65 @@
             </p>
           </article>
 
-          <div class="cred-3">
-            <div>
+          <div class="cred-grid">
+            <div class="cred reveal">
               <h4>Education</h4>
               <ul>
-                <li><b>M.S. Computer Science</b><span>CSULB · Jan 2025 – Dec 2026</span></li>
-                <li><b>B.E. CSE · GPA 8.42/10</b><span>New Horizon College · 2018–2022 · First Class with Distinction</span></li>
-                <li><b>+2 Computer Science</b><span>Trinity International · 2016–2018</span></li>
+                <li>
+                  <strong>M.S. Computer Science</strong>
+                  <span>CSULB · Jan 2025 – Dec 2026</span>
+                </li>
+                <li>
+                  <strong>B.E. CSE · GPA 8.42/10</strong>
+                  <span>New Horizon College · 2018–2022 · First Class with Distinction</span>
+                </li>
+                <li>
+                  <strong>+2 Computer Science</strong>
+                  <span>Trinity International · 2016–2018</span>
+                </li>
               </ul>
             </div>
-            <div>
-              <h4>Certifications &amp; awards</h4>
+            <div class="cred reveal">
+              <h4>Awards &amp; certs</h4>
               <ul>
-                <li><b>Rising Developer of the Year</b><span>2023 &amp; 2024</span></li>
-                <li><b>ETHGlobal NY · Partner of Saga</b><span>1st place · 2025</span></li>
-                <li><b>Oracle Java SE 11</b><span>1Z0-819</span></li>
-                <li><b>Azure · AWS Partner · ServiceNow</b><span>Cloud &amp; IT leadership</span></li>
+                <li>
+                  <strong>Rising Developer of the Year</strong>
+                  <span>2023 &amp; 2024</span>
+                </li>
+                <li>
+                  <strong>ETHGlobal NY · Partner of Saga</strong>
+                  <span>1st place · 2025</span>
+                </li>
+                <li>
+                  <strong>Oracle Java SE 11</strong>
+                  <span>1Z0-819</span>
+                </li>
+                <li>
+                  <strong>Azure · AWS Partner · ServiceNow</strong>
+                  <span>Cloud &amp; IT leadership</span>
+                </li>
               </ul>
-            </div>
-            <div>
-              <h4>Skills</h4>
-              <p class="skill-line">
-                Java · Spring Boot · Python · TypeScript · Go · React · Next.js ·
-                Leaflet · Supabase · PostGIS · PostgreSQL · SQL · AWS · Azure · GCP ·
-                Docker · Kubernetes · Kafka · Redis · Spark · Databricks · LLMs ·
-                TensorFlow · PyTorch · OpenCV · Vitest · Playwright · Tableau · Power BI
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT -->
-      <section class="block contact" id="contact">
-        <div class="shell contact-inner">
-          <div class="block-label">Contact</div>
-          <h2>Let’s build something together</h2>
-          <a class="big-mail" href="mailto:dipak.yadav5501@gmail.com">dipak.yadav5501@gmail.com</a>
-          <div class="contact-row">
+      <section class="section contact" id="contact">
+        <div class="wrap contact-wrap">
+          <div class="section-label reveal">Contact</div>
+          <h2 class="contact-title reveal">
+            Let’s build something<br /><em>worth shipping.</em>
+          </h2>
+          <a class="contact-mail reveal" href="mailto:dipak.yadav5501@gmail.com"
+            >dipak.yadav5501@gmail.com</a
+          >
+          <div class="contact-meta reveal">
             <a href="tel:+15625647856">+1 (562) 564-7856</a>
-            <a href="https://www.linkedin.com/in/dipak-yadav01/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="sep" aria-hidden="true"></span>
+            <a href="https://www.linkedin.com/in/dipak-yadav01/" target="_blank" rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+            <span class="sep" aria-hidden="true"></span>
             <a href="https://github.com/dipak5501" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
@@ -399,9 +549,10 @@
     </main>
 
     <footer class="footer">
-      <div class="shell footer-inner">
+      <div class="wrap footer-inner">
         <p>© <span id="year"></span> Dipak Yadav</p>
-        <p>Long Beach, California</p>
+        <p>Designed &amp; built with care · Long Beach, CA</p>
+        <a href="#top">Top ↑</a>
       </div>
     </footer>
 
