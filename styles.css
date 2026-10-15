@@ -205,7 +205,7 @@ ul {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 18%;
   border: 3px solid var(--card);
   box-shadow: 0 0 0 1px var(--line);
   justify-self: center;
@@ -487,8 +487,28 @@ a.tile:hover {
   color: #fff;
 }
 
+.v-pulse {
+  background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 40%, #0f766e 100%);
+}
+
 .v-citi {
   background: linear-gradient(135deg, #0b3d5c 0%, #1a6b8a 50%, #2a9aaa 100%);
+}
+
+.tile-links {
+  margin: 0.75rem 0 0 !important;
+  font-size: 0.85rem !important;
+  font-weight: 600;
+  color: var(--muted) !important;
+}
+
+.tile-links a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.tile-links a:hover {
+  text-decoration: underline;
 }
 
 .v-omni {
@@ -509,6 +529,10 @@ a.tile:hover {
 
 .v-ml {
   background: linear-gradient(135deg, #14532d 0%, #15803d 100%);
+}
+
+.v-caption {
+  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 55%, #a78bfa 100%);
 }
 
 .tile-body {
