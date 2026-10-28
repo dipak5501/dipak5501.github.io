@@ -999,6 +999,58 @@ a.project:hover .arrow {
   }
 }
 
+/* Press / highlights */
+.highlights-lede {
+  max-width: 40rem;
+  color: var(--ink-2);
+  margin: 0 0 1.75rem;
+}
+
+.press-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.press-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.press-list a {
+  display: grid;
+  grid-template-columns: minmax(7rem, 9.5rem) 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  text-decoration: none;
+  align-items: baseline;
+  transition: color 0.2s var(--ease);
+}
+
+.press-list a:hover .press-title {
+  color: var(--accent);
+}
+
+.press-src {
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.press-title {
+  font-weight: 550;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+@media (max-width: 640px) {
+  .press-list a {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
 /* Mobile */
 @media (max-width: 860px) {
   .nav-toggle {
