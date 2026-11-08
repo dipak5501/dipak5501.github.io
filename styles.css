@@ -595,6 +595,40 @@ a.project:hover {
 .v-caption {
   background: linear-gradient(145deg, #1e293b, #334155);
 }
+.v-clear {
+  background: linear-gradient(145deg, #134e4a, #0f766e);
+}
+.v-keep {
+  background: linear-gradient(145deg, #3f6212, #4d7c0f);
+}
+.v-pay {
+  background: linear-gradient(145deg, #1e1b4b, #4338ca);
+}
+.v-paper {
+  background: linear-gradient(145deg, #9a3412, #c2410c);
+}
+.v-resume {
+  background: linear-gradient(145deg, #312e81, #6d28d9);
+}
+.v-sec {
+  background: linear-gradient(145deg, #111827, #374151);
+}
+.v-pdf {
+  background: linear-gradient(145deg, #44403c, #78716c);
+}
+.v-hub {
+  background: linear-gradient(145deg, #0c4a6e, #0369a1);
+}
+
+.tech a,
+.project-content h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.tech a:hover,
+.project-content h3 a:hover {
+  color: var(--accent);
+}
 
 .project-content {
   padding: 1.5rem 1.6rem 1.65rem;
