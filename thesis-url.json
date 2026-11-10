@@ -1,7 +1,7 @@
 {
   "ui": "https://every-llp-pontiac-designed.trycloudflare.com",
   "api": "https://sri-ion-substantial-cape.trycloudflare.com",
-  "updated": "2026-11-10T09:19:55Z",
+  "updated": "2026-11-10T09:20:15Z",
   "source": "uml-generation-pipeline Action on Link.md push",
   "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced from Link.md."
 }
