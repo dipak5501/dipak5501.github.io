@@ -1,0 +1,108 @@
+# Auto-sync thesis Cloudflare tunnel URL from uml-generation-pipeline → thesis-url.json
+#
+# Source of truth: private repo Link.md (updated by tunnel_notify on the Mac Studio).
+# Polls every 15 minutes; also workflow_dispatch + repository_dispatch.
+#
+# Secret: THESIS_SYNC_TOKEN — token with `repo` scope (read uml-generation-pipeline).
+# Commits use GITHUB_TOKEN (same repo).
+
+name: Sync thesis tunnel URL
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [thesis-url-updated]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-thesis-url
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout portfolio
+        uses: actions/checkout@v4
+
+      - name: Fetch Link.md and update thesis-url.json
+        id: sync
+        env:
+          GH_TOKEN: ${{ secrets.THESIS_SYNC_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::THESIS_SYNC_TOKEN secret missing (needs repo scope to read uml-generation-pipeline)."
+            exit 1
+          fi
+
+          curl -sS -f \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github.raw" \
+            "https://api.github.com/repos/dipak5501/uml-generation-pipeline/contents/Link.md?ref=main" \
+            > /tmp/Link.md
+
+          UI="$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' /tmp/Link.md | head -1 || true)"
+          API="$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' /tmp/Link.md | awk 'NR==1{u=$0; next} $0!=u{print; exit}')"
+          if [ -z "$UI" ]; then
+            echo "::error::No trycloudflare UI URL found in Link.md"
+            cat /tmp/Link.md | head -40
+            exit 1
+          fi
+          UI="${UI%/}"
+          API="${API%/}"
+          echo "UI=$UI"
+          echo "API=${API:-none}"
+
+          python3 - "$UI" "${API:-}" <<'PY'
+          import json, pathlib, re, sys
+          from datetime import datetime, timezone
+          ui, api = sys.argv[1], sys.argv[2]
+          root = pathlib.Path(".")
+          data = {
+              "ui": ui,
+              "api": api,
+              "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "source": "github-actions sync from dipak5501/uml-generation-pipeline Link.md",
+              "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced by .github/workflows/sync-thesis-url.yml.",
+          }
+          path = root / "thesis-url.json"
+          old = path.read_text(encoding="utf-8") if path.exists() else ""
+          new = json.dumps(data, indent=2) + "\n"
+          changed = old != new
+          path.write_text(new, encoding="utf-8")
+          pat = re.compile(
+              r'(data-thesis-live[\s\S]*?href=")https://[a-z0-9-]+\.trycloudflare\.com/?(")'
+          )
+          for name in ("about.html", "thesis.html"):
+              p = root / name
+              if not p.exists():
+                  continue
+              text = p.read_text(encoding="utf-8")
+              text2, n = pat.subn(rf"\1{ui}\2", text)
+              if n and text2 != text:
+                  p.write_text(text2, encoding="utf-8")
+                  changed = True
+          (root / ".sync-changed").write_text("1" if changed else "0", encoding="utf-8")
+          print("changed", changed)
+          PY
+
+      - name: Commit and push if changed
+        run: |
+          set -euo pipefail
+          if [ "$(cat .sync-changed)" != "1" ]; then
+            echo "Already up to date."
+            rm -f .sync-changed
+            exit 0
+          fi
+          rm -f .sync-changed
+          git config user.name "dipak5501"
+          git config user.email "71300693+dipak5501@users.noreply.github.com"
+          git add thesis-url.json about.html thesis.html
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: sync thesis tunnel URL from uml-generation-pipeline"
+          git push

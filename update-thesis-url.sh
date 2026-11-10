@@ -2,7 +2,10 @@
 # Update portfolio thesis-url.json from the UML pipeline's live tunnel URL,
 # then optionally commit & push so https://dipak5501.github.io/ stays current.
 #
-# Usage:
+# Auto-sync (preferred): GitHub Actions keep this in sync without running locally.
+#   - Portfolio: .github/workflows/sync-thesis-url.yml (cron every 15m + dispatch)
+#   - Pipeline:  uml-generation-pipeline sync-portfolio-thesis-url.yml (on Link.md push)
+# Manual:
 #   ./update-thesis-url.sh                  # sync (GitHub Link.md preferred)
 #   ./update-thesis-url.sh --url URL        # set UI URL explicitly
 #   ./update-thesis-url.sh --push           # sync + commit + push portfolio
