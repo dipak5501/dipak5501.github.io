@@ -13,6 +13,26 @@ const sections = hashLinks
 
 if (year) year.textContent = String(new Date().getFullYear());
 
+/** Apply live thesis tunnel URL from thesis-url.json (single source of truth). */
+async function applyThesisLiveUrl() {
+  const links = document.querySelectorAll("[data-thesis-live]");
+  if (!links.length) return;
+  try {
+    const res = await fetch(`thesis-url.json?v=${Date.now()}`, { cache: "no-store" });
+    if (!res.ok) return;
+    const data = await res.json();
+    const ui = (data.ui || "").trim().replace(/\/$/, "");
+    if (!ui) return;
+    links.forEach((a) => {
+      a.setAttribute("href", ui);
+      a.title = data.updated ? `Live thesis UI · updated ${data.updated}` : "Live thesis UI";
+    });
+  } catch {
+    /* keep href fallback baked into HTML */
+  }
+}
+applyThesisLiveUrl();
+
 function setMenuOpen(open) {
   sidebar?.classList.toggle("open", open);
   backdrop?.classList.toggle("show", open);

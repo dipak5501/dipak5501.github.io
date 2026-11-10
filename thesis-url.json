@@ -1,0 +1,7 @@
+{
+  "ui": "https://orange-fountain-especially-positive.trycloudflare.com",
+  "api": "https://easter-replication-mug-dee.trycloudflare.com",
+  "updated": "2026-11-10T09:13:33Z",
+  "source": "local /Users/dslc/Desktop/UML/Link.md",
+  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Update this file (or run ./update-thesis-url.sh) then commit & push."
+}
