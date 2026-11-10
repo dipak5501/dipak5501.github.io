@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -25,8 +25,24 @@
   <body>
     <a class="skip" href="#main">Skip to content</a>
 
+    <div class="mobile-bar">
+      <a class="mobile-brand" href="#index">Dipak Yadav</a>
+      <button
+        class="menu-toggle"
+        type="button"
+        id="menu-toggle"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="sidebar"
+      >
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="backdrop" id="backdrop" hidden></div>
+
     <div class="page-container">
       <nav class="sidebar" id="sidebar" aria-label="Primary">
+        <div class="sidebar-mark">CSULB · MS CS</div>
         <a href="#index" class="active"><i class="fas fa-home"></i> Home</a>
         <a href="#projects"><i class="fas fa-flask"></i> Projects</a>
         <a href="#experience"><i class="fas fa-chalkboard-teacher"></i> Experience</a>
@@ -40,8 +56,14 @@
 
       <div class="main-content" id="main">
         <div class="container-inner" id="index">
-          <div class="profile-section">
-            <img class="profile-image" src="avatar.png" alt="Dipak Yadav" width="160" height="160" />
+          <div class="profile-section reveal">
+            <img
+              class="profile-image"
+              src="avatar.png"
+              alt="Dipak Yadav"
+              width="168"
+              height="210"
+            />
             <div class="profile-info">
               <h1 class="profile-name">Dipak Yadav</h1>
               <div class="profile-title">
@@ -51,7 +73,7 @@
               </div>
               <div class="profile-contact">
                 <p>
-                  <i class="far fa-envelope"></i> Email:
+                  <i class="far fa-envelope"></i>
                   <a class="simple-link" href="mailto:dipak.yadav5501@gmail.com"
                     >dipak.yadav5501@gmail.com</a
                   >
@@ -64,7 +86,7 @@
                     rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> GitHub</a
                   >
-                  |
+                  ·
                   <a
                     href="https://www.linkedin.com/in/dipak-yadav01/"
                     class="simple-link"
@@ -72,13 +94,13 @@
                     rel="noopener noreferrer"
                     ><i class="fab fa-linkedin"></i> LinkedIn</a
                   >
-                  |
+                  ·
                   <a href="tel:+15625647856" class="simple-link"
                     ><i class="fas fa-phone"></i> +1 (562) 564-7856</a
                   >
-                  |
+                  ·
                   <a href="about.html" class="simple-link">About</a>
-                  |
+                  ·
                   <a href="thesis.html" class="simple-link">Thesis</a>
                 </p>
               </div>
@@ -87,10 +109,14 @@
 
           <hr class="section-divider" />
 
-          <div class="bio-text">
+          <div class="bio-text reveal">
             <p>
               I am an M.S. Computer Science student at
-              <a class="simple-link" href="https://www.csulb.edu/" target="_blank" rel="noopener noreferrer"
+              <a
+                class="simple-link"
+                href="https://www.csulb.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
                 >California State University, Long Beach</a
               >
               (graduating Dec 2026), with nearly four years of full-stack
@@ -110,15 +136,16 @@
 
           <hr class="section-divider" />
 
-          <section id="projects" class="section">
+          <section id="projects" class="section reveal">
             <h2 class="section-title"><i class="fas fa-flask"></i> Projects</h2>
             <div class="publications-container">
-              <div class="publication-item">
+              <div class="publication-item is-featured">
                 <h3 class="publication-title">
-                  Harborbrief <span class="award-badge">Featured · Live</span>
+                  Harborbrief / LocalPulse
+                  <span class="award-badge">Featured · Live</span>
                 </h3>
                 <p class="publication-authors">
-                  LocalPulse · Next.js 16 · TypeScript · Leaflet · Supabase / PostGIS
+                  Next.js 16 · TypeScript · Leaflet · Supabase / PostGIS
                 </p>
                 <p class="publication-venue">
                   A living place brief with weather, access, and community pulses —
@@ -126,11 +153,18 @@
                   markers and custom heatmap.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://dipak5501.github.io/localpulse/" target="_blank" rel="noopener noreferrer"
-                    ><i class="fas fa-link"></i> Demo</a
+                  <a
+                    class="btn-link is-primary"
+                    href="https://dipak5501.github.io/localpulse/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><i class="fas fa-external-link-alt"></i> Demo</a
                   >
-                  |
-                  <a class="simple-link" href="https://github.com/dipak5501/localpulse" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/localpulse"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -161,12 +195,19 @@
                   Saga.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/omniagent-app" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link is-primary"
+                    href="https://github.com/dipak5501/omniagent-app"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
-                  |
-                  <a class="simple-link" href="https://ethglobal.com/showcase/omniagent-mxsn4" target="_blank" rel="noopener noreferrer"
-                    ><i class="fas fa-link"></i> Showcase</a
+                  <a
+                    class="btn-link"
+                    href="https://ethglobal.com/showcase/omniagent-mxsn4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><i class="fas fa-external-link-alt"></i> Showcase</a
                   >
                 </p>
               </div>
@@ -181,7 +222,9 @@
                   with Multimodal Verification.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="thesis.html"><i class="fas fa-graduation-cap"></i> Thesis page</a>
+                  <a class="btn-link" href="thesis.html"
+                    ><i class="fas fa-graduation-cap"></i> Thesis page</a
+                  >
                 </p>
               </div>
 
@@ -193,7 +236,11 @@
                   dashboard.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/-Criminal-identification-using-2D-face-recognition-system" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/-Criminal-identification-using-2D-face-recognition-system"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -206,7 +253,11 @@
                   Dealership KPIs — YTD/MTD, YoY growth, regional maps.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/Sales-Performance-Dashboard" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/Sales-Performance-Dashboard"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -219,7 +270,11 @@
                   Predictive analysis of academic performance signals in Python.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/ML_Student_Performance_Analysis" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/ML_Student_Performance_Analysis"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -251,7 +306,11 @@
                   install-time risk visible on your machine, before packages land.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/clearinstall" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/clearinstall"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -265,7 +324,11 @@
                   free trials from bank CSVs entirely in the browser.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/keepcut" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/keepcut"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -279,7 +342,11 @@
                   settlement on Solana devnet.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/paydesk" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/paydesk"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -292,7 +359,11 @@
                   Browser studio for stickers, pins, cards, tags, and box dielines.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/paperroom" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/paperroom"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -306,7 +377,11 @@
                   PDF.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/resume-agent" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/resume-agent"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -320,7 +395,11 @@
                   and a suggested fix next to each one.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/secure-code-lens" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/secure-code-lens"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -334,7 +413,11 @@
                   file stays on the machine.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/water-mark-remover" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/water-mark-remover"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Code</a
                   >
                 </p>
@@ -348,21 +431,55 @@
                   crypto tracker, artist directory, and a local-only job desk.
                 </p>
                 <p class="publication-links">
-                  <a class="simple-link" href="https://github.com/dipak5501/daily-app-hub" target="_blank" rel="noopener noreferrer"
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/daily-app-hub"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> Hub</a
                   >
-                  |
-                  <a class="simple-link" href="https://github.com/dipak5501/codeclip-app" target="_blank" rel="noopener noreferrer">codeclip</a>
-                  ·
-                  <a class="simple-link" href="https://github.com/dipak5501/localwiki-explorer" target="_blank" rel="noopener noreferrer">wiki</a>
-                  ·
-                  <a class="simple-link" href="https://github.com/dipak5501/local-music-explorer" target="_blank" rel="noopener noreferrer">music</a>
-                  ·
-                  <a class="simple-link" href="https://github.com/dipak5501/crypto-tracker-local" target="_blank" rel="noopener noreferrer">crypto</a>
-                  ·
-                  <a class="simple-link" href="https://github.com/dipak5501/local-artists-directory" target="_blank" rel="noopener noreferrer">artists</a>
-                  ·
-                  <a class="simple-link" href="https://github.com/dipak5501/fresh-roles" target="_blank" rel="noopener noreferrer">fresh-roles</a>
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/codeclip-app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >codeclip</a
+                  >
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/localwiki-explorer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >wiki</a
+                  >
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/local-music-explorer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >music</a
+                  >
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/crypto-tracker-local"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >crypto</a
+                  >
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/local-artists-directory"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >artists</a
+                  >
+                  <a
+                    class="btn-link"
+                    href="https://github.com/dipak5501/fresh-roles"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >fresh-roles</a
+                  >
                 </p>
               </div>
             </div>
@@ -370,7 +487,7 @@
 
           <hr class="section-divider" />
 
-          <section id="experience" class="section">
+          <section id="experience" class="section reveal">
             <h2 class="section-title">
               <i class="fas fa-chalkboard-teacher"></i> Experience
             </h2>
@@ -409,7 +526,7 @@
 
           <hr class="section-divider" />
 
-          <section id="publications" class="section">
+          <section id="publications" class="section reveal">
             <h2 class="section-title"><i class="fas fa-book"></i> Publications</h2>
             <div class="publications-container">
               <div class="publication-item">
@@ -436,14 +553,18 @@
 
           <hr class="section-divider" />
 
-          <section id="awards" class="section">
-            <h2 class="section-title"><i class="fas fa-newspaper"></i> Awards &amp; Education</h2>
+          <section id="awards" class="section reveal">
+            <h2 class="section-title">
+              <i class="fas fa-newspaper"></i> Awards &amp; Education
+            </h2>
             <div class="services-container">
               <div class="services-category">
                 <h3 class="services-subtitle">Awards &amp; certifications</h3>
                 <ul class="services-list">
                   <li>
-                    <span class="service-item">Rising Developer of the Year (2023 &amp; 2024)</span>
+                    <span class="service-item"
+                      >Rising Developer of the Year (2023 &amp; 2024)</span
+                    >
                     <span class="year">2023–24</span>
                   </li>
                   <li>
@@ -496,31 +617,59 @@
 
           <hr class="section-divider" />
 
-          <section id="skills" class="section">
+          <section id="skills" class="section reveal">
             <h2 class="section-title"><i class="fas fa-hands-helping"></i> Skills</h2>
-            <div class="bio-text">
-              <p>
-                <strong>Frontend:</strong> TypeScript · React · Next.js · HTML/CSS ·
-                AngularJS · Leaflet
-              </p>
-              <p>
-                <strong>Backend:</strong> Java · Spring Boot · Python · Go · Node.js ·
-                REST · SQL · PostgreSQL
-              </p>
-              <p>
-                <strong>Data &amp; AI:</strong> Spark · Databricks · LLMs ·
-                TensorFlow · PyTorch · OpenCV · Pandas · Scikit-learn
-              </p>
-              <p>
-                <strong>Cloud &amp; quality:</strong> AWS · Azure · GCP · Docker ·
-                Kubernetes · Vitest · Playwright · CI/CD · Kafka · Redis
-              </p>
+            <div class="skill-groups">
+              <div class="skill-row">
+                <span class="skill-label">Frontend</span>
+                <span class="skill-chip">TypeScript</span>
+                <span class="skill-chip">React</span>
+                <span class="skill-chip">Next.js</span>
+                <span class="skill-chip">HTML/CSS</span>
+                <span class="skill-chip">AngularJS</span>
+                <span class="skill-chip">Leaflet</span>
+              </div>
+              <div class="skill-row">
+                <span class="skill-label">Backend</span>
+                <span class="skill-chip">Java</span>
+                <span class="skill-chip">Spring Boot</span>
+                <span class="skill-chip">Python</span>
+                <span class="skill-chip">Go</span>
+                <span class="skill-chip">Node.js</span>
+                <span class="skill-chip">REST</span>
+                <span class="skill-chip">SQL</span>
+                <span class="skill-chip">PostgreSQL</span>
+              </div>
+              <div class="skill-row">
+                <span class="skill-label">Data &amp; AI</span>
+                <span class="skill-chip">Spark</span>
+                <span class="skill-chip">Databricks</span>
+                <span class="skill-chip">LLMs</span>
+                <span class="skill-chip">TensorFlow</span>
+                <span class="skill-chip">PyTorch</span>
+                <span class="skill-chip">OpenCV</span>
+                <span class="skill-chip">Pandas</span>
+                <span class="skill-chip">Scikit-learn</span>
+              </div>
+              <div class="skill-row">
+                <span class="skill-label">Cloud &amp; quality</span>
+                <span class="skill-chip">AWS</span>
+                <span class="skill-chip">Azure</span>
+                <span class="skill-chip">GCP</span>
+                <span class="skill-chip">Docker</span>
+                <span class="skill-chip">Kubernetes</span>
+                <span class="skill-chip">Vitest</span>
+                <span class="skill-chip">Playwright</span>
+                <span class="skill-chip">CI/CD</span>
+                <span class="skill-chip">Kafka</span>
+                <span class="skill-chip">Redis</span>
+              </div>
             </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section id="contact" class="section">
+          <section id="contact" class="section reveal">
             <h2 class="section-title"><i class="fas fa-coffee"></i> Contact</h2>
             <div class="bio-text">
               <p>
@@ -532,9 +681,21 @@
                 <a class="simple-link" href="tel:+15625647856">+1 (562) 564-7856</a>
               </p>
               <p>
-                <a class="simple-link" href="https://github.com/dipak5501" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a
+                  class="simple-link"
+                  href="https://github.com/dipak5501"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
                 ·
-                <a class="simple-link" href="https://www.linkedin.com/in/dipak-yadav01/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a
+                  class="simple-link"
+                  href="https://www.linkedin.com/in/dipak-yadav01/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >LinkedIn</a
+                >
                 ·
                 <a class="simple-link" href="about.html">About</a>
                 ·
