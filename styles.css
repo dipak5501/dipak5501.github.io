@@ -12,7 +12,7 @@
   --link: #0b5cad;
   --link-hover: #074078;
   --sidebar-w: 168px;
-  --content-max: 860px;
+  --content-max: 920px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --radius: 8px;
 }
@@ -33,7 +33,10 @@ body {
   font-size: 16px;
   line-height: 1.55;
   color: var(--text);
-  background: var(--surface);
+  background:
+    radial-gradient(1200px 480px at 12% -10%, rgba(255, 199, 42, 0.18), transparent 55%),
+    radial-gradient(900px 420px at 100% 0%, rgba(255, 199, 42, 0.08), transparent 50%),
+    #fffef9;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -181,7 +184,50 @@ a {
   margin: 0 auto;
 }
 
-/* —— Profile header —— */
+/* —— Home hero —— */
+.home-hero {
+  margin: 0 0 1.35rem;
+}
+
+.hero-panel {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(1.35rem, 3.5vw, 2.25rem);
+  padding: 1.25rem 1.35rem 1.35rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(255, 199, 42, 0.22) 0%, rgba(255, 255, 255, 0.92) 42%, #fff 100%);
+  box-shadow: 0 12px 36px rgba(17, 17, 17, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--gold);
+}
+
+.hero-photo-wrap {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.hero-photo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 8px -8px -8px 8px;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .profile-section {
   display: flex;
   align-items: flex-start;
@@ -191,37 +237,78 @@ a {
 }
 
 .profile-image {
-  width: 168px;
-  height: 210px;
+  position: relative;
+  z-index: 1;
+  width: 180px;
+  height: 224px;
   object-fit: cover;
   object-position: center 18%;
   flex-shrink: 0;
   display: block;
   background: #eee;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
 }
 
 .profile-info {
   flex: 1;
   min-width: 0;
-  padding-top: 0.15rem;
+  padding-top: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
 }
 
 .profile-name {
-  margin: 0 0 0.45rem;
-  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  margin: 0 0 0.4rem;
+  font-size: clamp(2rem, 3.4vw, 2.65rem);
   font-weight: 700;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
   color: var(--ink);
-  line-height: 1.1;
+  line-height: 1.05;
 }
 
 .profile-title {
-  margin: 0 0 1rem;
+  margin: 0 0 0.9rem;
   font-size: 1.02rem;
   font-weight: 500;
   color: var(--muted);
   line-height: 1.45;
+}
+
+.highlight-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1rem;
+}
+
+.hl-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.32rem 0.65rem;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.hl-chip i {
+  font-size: 0.7rem;
+  opacity: 0.9;
 }
 
 .profile-contact {
@@ -238,6 +325,95 @@ a {
   width: 1.1em;
   text-align: center;
   margin-right: 0.2rem;
+}
+
+.hero-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease,
+    transform 0.15s var(--ease);
+}
+
+.contact-pill:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.intro-copy {
+  margin: 0 0 1.25rem;
+  padding: 0.15rem 0.15rem 0;
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.spotlight-card {
+  padding: 1.15rem 1.2rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.spotlight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+  border-color: rgba(255, 199, 42, 0.55);
+}
+
+.spotlight-card.is-featured {
+  background: linear-gradient(160deg, #fff8e1 0%, #ffffff 58%);
+  border-color: rgba(255, 199, 42, 0.55);
+}
+
+.spotlight-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.spotlight-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.spotlight-body {
+  margin: 0 0 0.85rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #555;
+  line-height: 1.5;
 }
 
 .simple-link {
@@ -610,6 +786,28 @@ a {
 }
 
 /* —— Responsive —— */
+/* Desktop: gold rail always visible (never collapse to top strip) */
+@media (min-width: 821px) {
+  .sidebar {
+    transform: none !important;
+    position: fixed !important;
+    left: 0 !important;
+    width: var(--sidebar-w) !important;
+    height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--gold) !important;
+  }
+
+  .main-content {
+    margin-left: var(--sidebar-w) !important;
+  }
+
+  .mobile-bar {
+    display: none !important;
+  }
+}
+
 @media (max-width: 960px) {
   .teaching-item {
     grid-template-columns: 1fr;
@@ -617,6 +815,10 @@ a {
 
   .teaching-institution {
     text-align: left;
+  }
+
+  .spotlight-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -640,14 +842,28 @@ a {
     padding: 1.25rem 1.1rem 3rem;
   }
 
+  .hero-panel {
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: 1.1rem;
+  }
+
+  .hero-photo-wrap::after {
+    inset: 6px -6px -6px 6px;
+  }
+
   .profile-section {
     flex-direction: column;
     gap: 1.1rem;
   }
 
   .profile-image {
-    width: 140px;
-    height: 175px;
+    width: 148px;
+    height: 186px;
+  }
+
+  .spotlight-grid {
+    grid-template-columns: 1fr;
   }
 
   .services-list li {

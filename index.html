@@ -56,60 +56,63 @@
 
       <div class="main-content" id="main">
         <div class="container-inner" id="index">
-          <div class="profile-section reveal">
-            <img
-              class="profile-image"
-              src="avatar.png"
-              alt="Dipak Yadav"
-              width="168"
-              height="210"
-            />
-            <div class="profile-info">
-              <h1 class="profile-name">Dipak Yadav</h1>
-              <div class="profile-title">
-                Software Engineer · Full-Stack &amp; AI<br />
-                M.S. Computer Science<br />
-                California State University, Long Beach
+          <header class="home-hero reveal in">
+            <div class="hero-panel">
+              <div class="hero-photo-wrap">
+                <img
+                  class="profile-image"
+                  src="avatar.png"
+                  alt="Dipak Yadav"
+                  width="200"
+                  height="250"
+                />
               </div>
-              <div class="profile-contact">
-                <p>
-                  <i class="far fa-envelope"></i>
-                  <a class="simple-link" href="mailto:dipak.yadav5501@gmail.com"
-                    >dipak.yadav5501@gmail.com</a
+              <div class="profile-info">
+                <p class="hero-kicker">Software Engineer · Long Beach, CA</p>
+                <h1 class="profile-name">Dipak Yadav</h1>
+                <div class="profile-title">
+                  Full-Stack &amp; AI · M.S. Computer Science<br />
+                  California State University, Long Beach · Dec 2026
+                </div>
+                <div class="highlight-chips" aria-label="Highlights">
+                  <span class="hl-chip"><i class="fas fa-trophy"></i> ETHGlobal NY 1st</span>
+                  <span class="hl-chip"><i class="fas fa-star"></i> Rising Dev 2023–24</span>
+                  <span class="hl-chip"><i class="fas fa-university"></i> CSULB M.S. CS</span>
+                  <span class="hl-chip"><i class="fas fa-briefcase"></i> ex-LTIMindtree</span>
+                </div>
+                <div class="profile-contact hero-contact">
+                  <a class="contact-pill" href="mailto:dipak.yadav5501@gmail.com"
+                    ><i class="far fa-envelope"></i> Email</a
                   >
-                </p>
-                <p>
                   <a
+                    class="contact-pill"
                     href="https://github.com/dipak5501"
-                    class="simple-link"
                     target="_blank"
                     rel="noopener noreferrer"
                     ><i class="fab fa-github"></i> GitHub</a
                   >
-                  ·
                   <a
+                    class="contact-pill"
                     href="https://www.linkedin.com/in/dipak-yadav01/"
-                    class="simple-link"
                     target="_blank"
                     rel="noopener noreferrer"
                     ><i class="fab fa-linkedin"></i> LinkedIn</a
                   >
-                  ·
-                  <a href="tel:+15625647856" class="simple-link"
-                    ><i class="fas fa-phone"></i> +1 (562) 564-7856</a
+                  <a class="contact-pill" href="tel:+15625647856"
+                    ><i class="fas fa-phone"></i> Call</a
                   >
-                  ·
-                  <a href="about.html" class="simple-link">About</a>
-                  ·
-                  <a href="thesis.html" class="simple-link">Thesis</a>
-                </p>
+                  <a class="contact-pill" href="about.html"
+                    ><i class="fas fa-user"></i> About</a
+                  >
+                  <a class="contact-pill" href="thesis.html"
+                    ><i class="fas fa-graduation-cap"></i> Thesis</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
+          </header>
 
-          <hr class="section-divider" />
-
-          <div class="bio-text reveal">
+          <div class="bio-text intro-copy reveal">
             <p>
               I am an M.S. Computer Science student at
               <a
@@ -125,13 +128,61 @@
             </p>
             <p>
               I build products that ship — from
-              <strong>Harborbrief / LocalPulse</strong> (a living place brief with
-              weather, access, and community pulses) to a Citi Bank KYC platform,
-              ETHGlobal-winning <strong>OmniAgent</strong>, and my M.S. thesis
+              <strong>Harborbrief / LocalPulse</strong> to a Citi Bank KYC
+              platform, ETHGlobal-winning <strong>OmniAgent</strong>, and my M.S.
+              thesis
               <a class="simple-link" href="thesis.html">UML Generation Pipeline</a>.
               At CSULB I work as a Graduate Assistant and Data Science Research
-              Assistant. Two-time Rising Developer of the Year (2023, 2024).
+              Assistant.
             </p>
+          </div>
+
+          <div class="spotlight-grid reveal">
+            <article class="spotlight-card is-featured">
+              <p class="spotlight-label">Featured product</p>
+              <h2 class="spotlight-title">Harborbrief / LocalPulse</h2>
+              <p class="spotlight-body">
+                A living place brief with weather, access, and community pulses —
+                maps, radius search, and location-aware trending.
+              </p>
+              <div class="publication-links">
+                <a
+                  class="btn-link is-primary"
+                  href="https://dipak5501.github.io/localpulse/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="fas fa-external-link-alt"></i> Demo</a
+                >
+                <a
+                  class="btn-link"
+                  href="https://github.com/dipak5501/localpulse"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="fab fa-github"></i> Code</a
+                >
+              </div>
+            </article>
+            <article class="spotlight-card">
+              <p class="spotlight-label">M.S. thesis · live</p>
+              <h2 class="spotlight-title">UML Generation Pipeline</h2>
+              <p class="spotlight-body">
+                NL / source code → PlantUML diagrams with multimodal VLM
+                verification. Tunnel URL auto-syncs when Cloudflare rotates.
+              </p>
+              <div class="publication-links">
+                <a
+                  class="btn-link is-primary"
+                  data-thesis-live
+                  href="https://every-llp-pontiac-designed.trycloudflare.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="fas fa-external-link-alt"></i> Live app</a
+                >
+                <a class="btn-link" href="thesis.html"
+                  ><i class="fas fa-graduation-cap"></i> Thesis page</a
+                >
+              </div>
+            </article>
           </div>
 
           <hr class="section-divider" />
