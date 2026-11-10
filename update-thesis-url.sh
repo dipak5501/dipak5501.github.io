@@ -3,7 +3,7 @@
 # then optionally commit & push so https://dipak5501.github.io/ stays current.
 #
 # Usage:
-#   ./update-thesis-url.sh                  # sync from GitHub Link.md / local files
+#   ./update-thesis-url.sh                  # sync (GitHub Link.md preferred)
 #   ./update-thesis-url.sh --url URL        # set UI URL explicitly
 #   ./update-thesis-url.sh --push           # sync + commit + push portfolio
 #   ./update-thesis-url.sh --url URL --push
@@ -19,6 +19,7 @@ UML_LOCAL_CANDIDATES=(
 
 UI_URL=""
 API_URL=""
+SOURCE=""
 DO_PUSH=0
 
 while [[ $# -gt 0 ]]; do
@@ -44,35 +45,74 @@ extract_ui() {
 
 extract_api() {
   local text="$1"
-  # Prefer a second distinct trycloudflare host (API) if present
   printf '%s\n' "$text" | grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' | awk 'NR==1{u=$0; next} $0!=u{print; exit}'
 }
 
+url_alive() {
+  local u="$1"
+  local code
+  code="$(curl -sI -o /dev/null -w '%{http_code}' --max-time 8 "$u" 2>/dev/null || true)"
+  [[ "$code" =~ ^(200|301|302|303|307|308)$ ]]
+}
+
 if [[ -z "$UI_URL" ]]; then
-  # 1) Local public_ui_url.txt / Link.md
+  # 1) Prefer GitHub Link.md (canonical / auto-updated by tunnel_notify)
+  if command -v gh >/dev/null 2>&1; then
+    REMOTE="$(gh api repos/dipak5501/uml-generation-pipeline/contents/Link.md --jq .content 2>/dev/null | base64 -d 2>/dev/null || true)"
+    if [[ -n "$REMOTE" ]]; then
+      CAND_UI="$(extract_ui "$REMOTE")"
+      CAND_API="$(extract_api "$REMOTE")"
+      if [[ -n "$CAND_UI" ]] && url_alive "$CAND_UI"; then
+        UI_URL="$CAND_UI"
+        API_URL="$CAND_API"
+        SOURCE="github dipak5501/uml-generation-pipeline Link.md"
+      elif [[ -n "$CAND_UI" ]]; then
+        echo "GitHub Link.md UI not reachable yet: $CAND_UI (will try local)" >&2
+        GH_UI="$CAND_UI"
+        GH_API="$CAND_API"
+      fi
+    fi
+  fi
+fi
+
+if [[ -z "$UI_URL" ]]; then
+  # 2) Local public_ui_url.txt (fresh run state) before stale Link.md
   for dir in "${UML_LOCAL_CANDIDATES[@]}"; do
     if [[ -f "$dir/data/run/public_ui_url.txt" ]]; then
-      UI_URL="$(tr -d '[:space:]' < "$dir/data/run/public_ui_url.txt")"
-      [[ -f "$dir/data/run/public_api_url.txt" ]] && API_URL="$(tr -d '[:space:]' < "$dir/data/run/public_api_url.txt")"
-      SOURCE="local $dir/data/run/public_ui_url.txt"
-      break
-    fi
-    if [[ -f "$dir/Link.md" ]]; then
-      UI_URL="$(extract_ui "$(cat "$dir/Link.md")")"
-      API_URL="$(extract_api "$(cat "$dir/Link.md")")"
-      SOURCE="local $dir/Link.md"
-      [[ -n "$UI_URL" ]] && break
+      CAND_UI="$(tr -d '[:space:]' < "$dir/data/run/public_ui_url.txt")"
+      CAND_API=""
+      [[ -f "$dir/data/run/public_api_url.txt" ]] && CAND_API="$(tr -d '[:space:]' < "$dir/data/run/public_api_url.txt")"
+      if [[ -n "$CAND_UI" ]] && url_alive "$CAND_UI"; then
+        UI_URL="$CAND_UI"
+        API_URL="$CAND_API"
+        SOURCE="local $dir/data/run/public_ui_url.txt"
+        break
+      fi
     fi
   done
 fi
 
-if [[ -z "$UI_URL" ]] && command -v gh >/dev/null 2>&1; then
-  REMOTE="$(gh api repos/dipak5501/uml-generation-pipeline/contents/Link.md --jq .content 2>/dev/null | base64 -d 2>/dev/null || true)"
-  if [[ -n "$REMOTE" ]]; then
-    UI_URL="$(extract_ui "$REMOTE")"
-    API_URL="$(extract_api "$REMOTE")"
-    SOURCE="github dipak5501/uml-generation-pipeline Link.md"
-  fi
+if [[ -z "$UI_URL" ]]; then
+  # 3) Local Link.md only if alive
+  for dir in "${UML_LOCAL_CANDIDATES[@]}"; do
+    if [[ -f "$dir/Link.md" ]]; then
+      CAND_UI="$(extract_ui "$(cat "$dir/Link.md")")"
+      CAND_API="$(extract_api "$(cat "$dir/Link.md")")"
+      if [[ -n "$CAND_UI" ]] && url_alive "$CAND_UI"; then
+        UI_URL="$CAND_UI"
+        API_URL="$CAND_API"
+        SOURCE="local $dir/Link.md"
+        break
+      fi
+    fi
+  done
+fi
+
+# 4) Fall back to GitHub URL even if probe failed (Pages can still point at published Link)
+if [[ -z "$UI_URL" && -n "${GH_UI:-}" ]]; then
+  UI_URL="$GH_UI"
+  API_URL="${GH_API:-}"
+  SOURCE="github dipak5501/uml-generation-pipeline Link.md (unreachable at sync time)"
 fi
 
 if [[ -z "$UI_URL" ]]; then
@@ -106,9 +146,23 @@ print(f"  updated: {updated}")
 print(f"  source: {source}")
 PY
 
+# Keep HTML fallbacks in sync for no-JS / first paint
+python3 - "$ROOT" "$UI_URL" <<'PY'
+import pathlib, re, sys
+root, ui = pathlib.Path(sys.argv[1]), sys.argv[2]
+pat = re.compile(r'(data-thesis-live[\s\S]*?href=")https://[a-z0-9-]+\.trycloudflare\.com/?(")')
+for name in ("about.html", "thesis.html"):
+    path = root / name
+    text = path.read_text(encoding="utf-8")
+    new, n = pat.subn(rf'\1{ui}\2', text)
+    if n:
+        path.write_text(new, encoding="utf-8")
+        print(f"Patched {n} href fallback(s) in {name}")
+PY
+
 if [[ "$DO_PUSH" -eq 1 ]]; then
   cd "$ROOT"
-  git add thesis-url.json
+  git add thesis-url.json about.html thesis.html update-thesis-url.sh
   if git diff --cached --quiet; then
     echo "No change to push (URL already current)."
     exit 0
