@@ -1,7 +1,7 @@
 {
   "ui": "https://bent-off-mathematics-interface.trycloudflare.com",
   "api": "https://reached-glucose-sources-temple.trycloudflare.com",
-  "updated": "2026-11-12T21:01:50Z",
-  "source": "uml-generation-pipeline Action on Link.md push",
-  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced from Link.md."
+  "updated": "2026-11-12T21:01:59Z",
+  "source": "github-actions sync from dipak5501/uml-generation-pipeline Link.md",
+  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced by .github/workflows/sync-thesis-url.yml."
 }
