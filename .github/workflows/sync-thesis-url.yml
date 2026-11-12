@@ -105,4 +105,14 @@ jobs:
           git add thesis-url.json about.html thesis.html
           git diff --cached --quiet && exit 0
           git commit -m "chore: sync thesis tunnel URL from uml-generation-pipeline"
-          git push
+          # Race-safe: pages deploy / concurrent syncs often push while we commit.
+          for i in 1 2 3 4 5; do
+            if git push; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $i) — rebasing onto origin/main…"
+            git pull --rebase --autostash origin main
+            sleep $((i * 2))
+          done
+          echo "::error::Failed to push after retries"
+          exit 1
