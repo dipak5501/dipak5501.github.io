@@ -1,7 +1,7 @@
 {
   "ui": "https://show-pensions-politicians-alt.trycloudflare.com",
   "api": "https://republicans-locks-blacks-varied.trycloudflare.com",
-  "updated": "2026-11-13T22:47:08Z",
+  "updated": "2026-11-14T02:42:48Z",
   "source": "github-actions sync from dipak5501/uml-generation-pipeline Link.md",
   "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced by .github/workflows/sync-thesis-url.yml."
 }
