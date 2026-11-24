@@ -1,7 +1,7 @@
 {
-  "ui": "https://divine-shopper-test-date.trycloudflare.com",
-  "api": "https://citysearch-epic-moderate-exhibition.trycloudflare.com",
-  "updated": "2026-11-24T06:51:11Z",
-  "source": "uml-generation-pipeline Action on Link.md push",
-  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced from Link.md."
+  "ui": "https://mine-exposure-microwave-alias.trycloudflare.com",
+  "api": "https://residence-cotton-loops-mel.trycloudflare.com",
+  "updated": "2026-11-24T06:51:22Z",
+  "source": "github-actions sync from dipak5501/uml-generation-pipeline Link.md",
+  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced by .github/workflows/sync-thesis-url.yml."
 }
