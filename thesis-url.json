@@ -1,7 +1,7 @@
 {
   "ui": "https://entity-birmingham-mortgages-avoid.trycloudflare.com",
   "api": "https://economies-questionnaire-phi-exclusion.trycloudflare.com",
-  "updated": "2026-11-24T06:52:50Z",
-  "source": "uml-generation-pipeline Action on Link.md push",
-  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced from Link.md."
+  "updated": "2026-11-24T06:52:57Z",
+  "source": "github-actions sync from dipak5501/uml-generation-pipeline Link.md",
+  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced by .github/workflows/sync-thesis-url.yml."
 }
