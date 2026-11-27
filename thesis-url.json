@@ -1,7 +1,7 @@
 {
   "ui": "https://outside-interpretation-rebel-greatly.trycloudflare.com",
   "api": "https://expressions-stuart-musical-corner.trycloudflare.com",
-  "updated": "2026-11-27T06:16:40Z",
-  "source": "uml-generation-pipeline Action on Link.md push",
-  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced from Link.md."
+  "updated": "2026-11-27T06:16:52Z",
+  "source": "github-actions sync from dipak5501/uml-generation-pipeline Link.md",
+  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced by .github/workflows/sync-thesis-url.yml."
 }
