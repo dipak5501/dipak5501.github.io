@@ -1,7 +1,7 @@
 {
   "ui": "https://euro-conditions-probe-passing.trycloudflare.com",
   "api": "https://remembered-sheet-convicted-cheque.trycloudflare.com",
-  "updated": "2026-11-27T06:15:58Z",
-  "source": "uml-generation-pipeline Action on Link.md push",
-  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced from Link.md."
+  "updated": "2026-11-27T06:16:07Z",
+  "source": "github-actions sync from dipak5501/uml-generation-pipeline Link.md",
+  "note": "Quick-tunnel URLs rotate when cloudflared restarts. Auto-synced by .github/workflows/sync-thesis-url.yml."
 }
